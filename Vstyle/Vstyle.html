@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-bind:class="[ isActive ? 'active' : '', 'green']" class="test">
+            hihi
+        </div>
+
+        <div :class="classObject"></div>
+
+        <div :style="{color: activeColor, fontSize: size}">
+            I am Bo Ren
+
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                isActive: true,
+                isGreen: true,
+                activeColor: '#FF0000',
+                size: '50px'
+            },
+            computed: {
+                classObject: function () {
+                    return {
+                        active: this.isActive
+
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+<style>
+    .test {
+        font-size: 40px
+    }
+
+    .green {
+        color: #00ff00;
+    }
+
+    .active {
+        background: firebrick;
+    }
+</style>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Syntax</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <p>Using mustaches: {{ rawHtml }}</p>
+        <p>Using v-html directive: <span v-html='rawHtml'></span></p>
+
+
+        <div v-bind:class='color'>顏色..</div>
+        <p>{{number +1}}</p>
+        <p>{{ok ? 'OK' : 'NO'}}</p>
+        <p>{{ message.split('').reverse().join('') }} </p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                rawHtml: '<span style="color: red">This should be red.</span>',
+                color: 'blue',
+                number: 10,
+                ok: false,
+                message: 'Vue'
+            }
+        });
+    </script>
+</body>
+
+<style>
+    .blue {
+        color: blue;
+    }
+</style>
+
+</html>

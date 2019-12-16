@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>if</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app-3">
+        <p v-if="seen">现在你看到我了</p>
+        <a v-bind:href="url">google</a>
+        <a v-bind:[abbb]="url2"> ...Href2 </a>
+        <h1 v-if="awesome">Vue is awesome!</h1>
+        <h1 v-else>Oh no 😢</h1>
+    </div>
+    <div id="app-4">
+
+        <div @click="click1">
+            <div @click.stop="click2">click me</div>
+        </div>
+        <template v-if="ok">
+            <h1>Title</h1>
+            <p>Paragraph 1</p>
+            <p>Paragraph 2</p>
+          </template>
+
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ol>
+    </div>
+
+    <script>
+        var app3 = new Vue({
+            el: '#app-3',
+            data: {
+                seen: true,
+                abbb: 'href',
+                url: 'https://google.com',
+                url2: 'https://fb.com',
+                awesome: false
+            }
+        })
+
+        var app4 = new Vue({
+            el: '#app-4',
+            data: {
+                todos: [
+                    { text: '項目1' },
+                    { text: '項目3' },
+                    { text: '項目4' }
+                ],
+                ok: true
+            },
+            methods: {
+                click1: () => {
+                    console.log('click1')
+                },
+                click2: () => {
+                    console.log('click2')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

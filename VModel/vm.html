@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{a}}{{b}}
+    </div>
+<!--
+    <div id="freeze">
+        {{foo}}
+        <button v-on:click="foo = 'baz'">Change it</button>
+    </div>-->
+    <script>
+        var data = { a: 1 };
+
+        var vm = new Vue({
+            el: '#app',
+            data: data
+        })
+
+        //data.a = "hi ...new...";
+        
+        vm.$watch('a',function(newVal, oldVal){
+            console.log(newVal,oldVal);
+        } )
+
+        vm.a = "test";
+        //vm.b = "123";
+
+        /*freeze start
+        var obj = {
+            foo: 'bar'
+        }
+
+        //Object.freeze(obj)
+
+        new Vue({ el: '#freeze', data: obj })
+        obj.foo = "123";
+        
+        freeze end*/
+        console.log(vm.$data === data);
+        console.log(vm.$el === document.getElementById('app')); 
+
+    </script>
+</body>
+
+</html>
